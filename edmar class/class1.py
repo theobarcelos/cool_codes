@@ -19,3 +19,14 @@ def get_db_connection():
             return connection
     except Error as e:
         print(f"Erro ao conectar ao MySQL: {e}")
+
+@app.route("/")
+def index():
+    connection = get_db_connection()
+    if connection:
+        cursor = connection.cursor()
+        cursor.execute("Select * from alunos")
+        alunos = cursor.fetchall()
+        cursor.close()
+        connection.close()
+        return render_template('index.html', alunos=alunos)
