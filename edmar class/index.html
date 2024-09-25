@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Flask Edmar</title>
+</head>
+<body>
+    <h1>Lista de Alunos</h1>
+    <a href="{{url_for('adicionar aluno')}}">Adicionar novo aluno</a>
+    
+    <!-- Criação da tabela -->
+    <table BORDER="1">
+
+        <!-- Cabeçalho da tabela -->
+        <thead> 
+            <!-- Linha do cabeçalho da tabela -->
+            <tr>
+                <!-- Itens de cabeçalho da tabela -->
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Turma</th>
+            </tr>
+        </thead>
+
+        <!-- Corpo da tabela -->
+        <tbody>
+            <!-- Abrindo um loop na tabela para poder rodar nela -->
+            {% for aluno in alunos %}
+            <tr>
+                <!-- Demonstrando valores na tabela -->
+                <td>{{aluno [0]}}</td><!-- Id -->  
+                <td>{{aluno [1]}}</td><!-- Nome -->
+                <td>{{aluno [2]}}</td><!-- Idade -->
+                <td>{{aluno [3]}}</td><!-- Turma -->
+            </tr>
+            <!-- Fechando o loop para não virar loop infinito -->
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
