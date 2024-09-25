@@ -6,6 +6,7 @@ import mysql.connector
 from mysql.connector import Error
 
 app = Flask(__name__)
+app.run(debug=True)
 
 def get_db_connection():
     try:
