@@ -30,3 +30,5 @@ def index():
         cursor.close()
         connection.close()
         return render_template('index.html', alunos=alunos)
+    else:
+        return "Erro na conexão com o Banco de Dados."
