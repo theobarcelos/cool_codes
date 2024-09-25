@@ -15,3 +15,7 @@ def get_db_connection():
             user = "root",
             password = ""
         )
+        if connection.is_connected():
+            return connection
+    except Error as e:
+        print(f"Erro ao conectar ao MySQL: {e}")
