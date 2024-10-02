@@ -52,5 +52,4 @@ def adicionar_aluno():
             return redirect(url_for('index'))
         else:
             return 'Erro na conexão com o Banco de Dados.'
-        
     return render_template('adicionar_aluno.html')
