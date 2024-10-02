@@ -33,3 +33,22 @@ def index():
         return render_template('index.html', alunos=alunos)
     else:
         return "Erro na conexão com o Banco de Dados."
+
+@app.route('/adicionar', methods=['GET', 'POST'])
+def adicionar_aluno():
+    if request.method == 'POST':
+        nome = request.form['nome']
+        idade = request.form['idade']
+        turma = request.form['turma']
+        
+        connection = get_db_connection()
+        if connection:
+            cursor = connection.cursor()
+            inserir_query = "INSERT INTO alunos (nome,idade,turma) VALUES (%s,%s,%s)"
+            dados = (nome, idade, turma)
+            cursor.execute(inserir_query, dados)
+            connection.commmit()
+            cursor.close()
+            return redirect(url_for('index'))
+        else:
+            return 'Erro na conexão com o Banco de Dados.'
