@@ -53,3 +53,6 @@ def adicionar_aluno():
         else:
             return 'Erro na conexão com o Banco de Dados.'
     return render_template('adicionar_aluno.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
