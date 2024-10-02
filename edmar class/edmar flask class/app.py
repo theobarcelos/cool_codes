@@ -47,8 +47,10 @@ def adicionar_aluno():
             inserir_query = "INSERT INTO alunos (nome,idade,turma) VALUES (%s,%s,%s)"
             dados = (nome, idade, turma)
             cursor.execute(inserir_query, dados)
-            connection.commmit()
+            connection.commit()
             cursor.close()
             return redirect(url_for('index'))
         else:
             return 'Erro na conexão com o Banco de Dados.'
+        
+    return render_template('adicionar_aluno.html')
