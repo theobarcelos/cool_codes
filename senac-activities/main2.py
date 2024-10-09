@@ -21,7 +21,7 @@ if pergunta == '+':
     print(f"O resultado da soma é: {soma(num1,num2)}")
 elif pergunta == '-':
     print(f"O resultado da subtração é: {subtra(num1,num2)}")
-elif pergunta == '*' or '.' or 'x':
+elif pergunta == '*' or pergunta == '.' or pergunta == 'x':
     print(f"O resultado da multiplicação é: {multi(num1,num2)}")
 else:
     print(f"O resultado da divisão é: {divi(num1,num2)}")
